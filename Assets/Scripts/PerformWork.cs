@@ -28,4 +28,12 @@ public class PerformWork : MonoBehaviour {
         System.Threading.Thread.Sleep(3000);
         TextFieldToUpdate.text = "Task " + taskNumber + " Slept for 3000ms " + DateTime.Now.ToString();
     }
+
+    public void Perform1000Tasks()
+    {
+        for (int i = 0; i < 1000000; i++)
+        {
+            TaskManager.Instance.Enqueue(() => { });
+        }
+    }
 }

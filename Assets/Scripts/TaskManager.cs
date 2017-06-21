@@ -16,7 +16,7 @@ public class TaskManager
             if (_instance == null)
             {
                 _instance = new TaskManager(); // Instantiate singleton on first use.
-                _instance.Queue = new CircularQueue<Action>(1024);
+                _instance.Queue = new CircularQueue<Action>(1024000);
             }
 
             return _instance;
