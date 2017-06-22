@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,9 +32,17 @@ public class PerformWork : MonoBehaviour {
 
     public void Perform1000Tasks()
     {
+        Stopwatch sw = new Stopwatch();
+        sw.Start();
+
         for (int i = 0; i < 1000000; i++)
         {
-            TaskManager.Instance.Enqueue(() => { });
+            TaskManager.Instance.Enqueue(() => {
+                if (TextFieldToUpdate != null)
+                    TextFieldToUpdate.text = i.ToString() + " item " + sw.ElapsedMilliseconds.ToString();
+            });
         }
+
+        sw.Stop();
     }
 }

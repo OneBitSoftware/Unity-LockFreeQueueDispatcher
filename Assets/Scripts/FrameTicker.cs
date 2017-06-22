@@ -7,6 +7,7 @@ public class FrameTicker : MonoBehaviour {
     public Text FrameValue;
 
 	void Update () {
-        FrameValue.text = Time.frameCount.ToString();	
+        if (FrameValue != null)
+            FrameValue.text = Time.frameCount.ToString();	
 	}
 }
